@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+	{% block title %}MealVote | IIITD Mess{% endblock %}
+	{% block container %}
+    <div class="hero-unit">
+        <h1>What's cookin'?</h1>
+        <p>There is <span style="color: #FF634D;">{{meal.what}}</span> for <span style="color: #006699;">{{meal.type}}</span></p>
+    <p><span id="ups">{{meal_obj.upVotes}}</span> upvotes, <span id="downs">{{meal_obj.downVotes}}</span> downvotes.</p>
+
+    <button id="up" type="submit" class="btn btn-primary">Sounds yummy</button>
+    <button id="down" type="submit" class="btn btn-primary">I'll pass</button>
+    
+    </div>
+
+    <script>
+    $("#up").click(function() {
+      $.get("/vote/up");
+      $("button").attr("class", "btn btn-primary disabled");
+      var ups = parseInt($("#ups").html()) + 1;
+      $("#ups").html(ups);
+
+      $("#up").unbind("click");
+      $("#down").unbind("click");
+
+    });
+   $("#down").click(function() {
+      $.get("/vote/down");
+      $("button").attr("class", "btn btn-primary disabled");
+      var downs = parseInt($("#downs").html()) + 1;
+      $("#downs").html(downs);
+
+      $("#up").unbind("click");
+      $("#down").unbind("click");
+    });
+    
+    </script>
+    {% endblock %}
