@@ -8,7 +8,18 @@ bfast = {
             "Friday": Meal("bfast", "Friday","vada/idli, sambhar, milk/tea, bread butter"),
             "Saturday": Meal("bfast", "Saturday","poori aloo, milk/tea, bread butter"),
             "Sunday": Meal("bfast", "Sunday","pav bhaji/poha, milk/tea, bread butter"),
-        }
+}
+
+
+eve = {
+            "Monday": Meal("Evening Snacks", "Monday", "chilly potato, shikanji"),
+            "Tuesday": Meal("Evening Snacks", "Tuesday", "biscuit,  tea"),
+            "Wednesday": Meal("Evening Snacks", "Wednesday", "aaloo bonda, coffee"),
+            "Thursday": Meal("Evening Snacks", "Thursday","aloo chana chat, tea"),
+            "Friday": Meal("Evening Snacks", "Friday","assorted veg pakora, coffee"),
+            "Saturday": Meal("Evening Snacks", "Saturday","aaloo sandwich, tea"),
+            "Sunday": Meal("Evening Snacks", "Sunday","samosa, tea"),
+}
 
 lunch = {
             "Monday": Meal("lunch", "Monday", "rajma, mix veg, rice, roti, salad, raita"),

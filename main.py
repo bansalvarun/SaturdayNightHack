@@ -16,7 +16,17 @@ bfast = {
             "Friday": Meal("Breakfast", "Friday","vada/idli, sambhar, milk/tea, bread butter"),
             "Saturday": Meal("Breakfast", "Saturday","poori aloo, milk/tea, bread butter"),
             "Sunday": Meal("Breakfast", "Sunday","pav bhaji/poha, milk/tea, bread butter"),
-        }
+}
+
+eve = {
+            "Monday": Meal("Evening Snacks", "Monday", "chilly potato, shikanji"),
+            "Tuesday": Meal("Evening Snacks", "Tuesday", "biscuit,  tea"),
+            "Wednesday": Meal("Evening Snacks", "Wednesday", "aaloo bonda, coffee"),
+            "Thursday": Meal("Evening Snacks", "Thursday","aloo chana chat, tea"),
+            "Friday": Meal("Evening Snacks", "Friday","assorted veg pakora, coffee"),
+            "Saturday": Meal("Evening Snacks", "Saturday","aaloo sandwich, tea"),
+            "Sunday": Meal("Evening Snacks", "Sunday","samosa, tea"),
+}
 
 lunch = {
             "Monday": Meal("Lunch", "Monday", "rajma, mix veg, rice, roti, salad, raita"),
@@ -39,7 +49,8 @@ dinner = {
             "Sunday": Meal("Dinner", "Sunday", "chicken, paneer, b masoor dal, rice, roti, salad, halwa"),
 }
 
-dinner_hours = range(15, 22 + 1)
+evesnacks_hours = range(15, 18 + 1)
+dinner_hours = range(17, 22 + 1)
 breakfast_hours = [23, 24] + range(1, 10 + 1)
 
 def get_current_meal():
@@ -56,8 +67,11 @@ def get_current_meal():
         meal = dinner[day]
     elif (now.hour in breakfast_hours):
         meal = bfast[day]
+    elif (now.hour in breakfast_hours):
+        meal = eve[day] 
 
     return meal
+
 def meal_object(meal):
     mid = meal.getMealId()
     prev = db.GqlQuery("SELECT * FROM Votes WHERE mealID = :1", mid)
